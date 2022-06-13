@@ -6,13 +6,14 @@ import crud.library.exception.BookStatusNotFound;
 import crud.library.exception.CopyBookNotFound;
 import crud.library.repository.CopyRepo;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
 public class CopyRepoService {
     private final CopyRepo copyRepo;

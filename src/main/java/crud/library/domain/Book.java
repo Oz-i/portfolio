@@ -18,6 +18,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
+@ToString
+@EqualsAndHashCode
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,6 +35,6 @@ public class Book {
     @JsonIgnore
     @OneToMany(mappedBy = "book",
             cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER, orphanRemoval = true)
+            fetch = FetchType.EAGER)
     private List<Copy> copies;
 }

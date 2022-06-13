@@ -2,7 +2,7 @@ package crud.library.mapper;
 
 import crud.library.domain.Copy;
 import crud.library.domain.dto.CopyDto;
-import crud.library.service.BookRepoServis;
+import crud.library.service.BookRepoService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import java.util.List;
@@ -11,12 +11,12 @@ import java.util.stream.Collectors;
 @Component
 @AllArgsConstructor
 public class CopyMapper {
-    private final BookRepoServis bookRepoServis;
+    private final BookRepoService bookRepoService;
 
     public Copy mapToCopy(final CopyDto copyDto) {
         return Copy.builder()
                 .id(copyDto.getId())
-                .book(bookRepoServis.getBookById(copyDto.getBookId()))
+                .book(bookRepoService.getBookById(copyDto.getBookId()))
                 .status(copyDto.getStatus())
                 .canBeBorrow(copyDto.isCanBeBorrow())
                 .borrowsList(copyDto.getBorrowsList())
@@ -25,7 +25,7 @@ public class CopyMapper {
     public CopyDto mapToCopyDTO(final Copy copy) {
         return CopyDto.builder()
                 .id(copy.getId())
-                .book(bookRepoServis.getBookById(copy.getBook().getId()))
+                .book(bookRepoService.getBookById(copy.getBook().getId()))
                 .status(copy.getStatus())
                 .canBeBorrow(copy.isCanBeBorrow())
                 .borrowsList(copy.getBorrowsList())

@@ -5,7 +5,7 @@ import crud.library.exception.BookAlreadyException;
 import crud.library.exception.BookNotFoundException;
 import crud.library.exception.NoTitle;
 import crud.library.repository.BookRepo;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
@@ -13,8 +13,8 @@ import java.util.Optional;
 
 
 @Service
-@AllArgsConstructor
-public class BookRepoServis {
+@RequiredArgsConstructor
+public class BookRepoService {
     private final BookRepo bookRepo;
     public List<Book> findAllBooks(){
         if (bookRepo.findAll().isEmpty())

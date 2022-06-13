@@ -6,13 +6,14 @@ import crud.library.exception.BorrowNotFoundException;
 import crud.library.exception.CopyAlreadyBorrowedException;
 import crud.library.repository.BorrowedRepo;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
 public class BorrowedRepoService {
     private final BorrowedRepo borrowedRepo;
