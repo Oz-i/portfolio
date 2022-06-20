@@ -38,7 +38,7 @@ dependencies {
 	//TESTY
 
 	implementation 'org.junit.jupiter:junit-jupiter:5.8.2'
-	implementation 'org.assertj:assertj-guava:3.4.0'
+	implementation 'org.assertj:assertj-guava:3.5.0'
 	compileOnly 'org.mockito:mockito-core:4.6.1'
 }
 
