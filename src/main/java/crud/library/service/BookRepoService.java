@@ -28,11 +28,11 @@ public class BookRepoService {
         return Optional.ofNullable(bookRepo.getBooksByTitle(title)).orElseThrow(() -> new NoTitle("wrong title "+ title));
     }
     @Transactional
-    public void saveBook(final Book book)throws BookAlreadyException {
+    public Book saveBook(final Book book)throws BookAlreadyException {
         if (bookRepo.existsByAuthorAndTitleAndYearOfPublication(
                 book.getAuthor(), book.getTitle(), book.getYearOfPublication()
         )){ throw new BookAlreadyException();}
-        bookRepo.save(book);
+        return bookRepo.save(book);
     }
     public void deleteAll(){
             bookRepo.deleteAll();
